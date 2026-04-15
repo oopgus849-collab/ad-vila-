@@ -4,7 +4,7 @@ import ContributionModal from './ContributionModal';
 
 export default function Footer() {
   return (
-    <footer id="contato" className="bg-foreground pt-24 pb-12 text-background">
+    <footer className="bg-foreground pt-24 pb-12 text-background">
       <div className="container mx-auto px-4">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
@@ -42,22 +42,17 @@ export default function Footer() {
               <li><a href="#sobre" className="hover:text-white transition-colors">Sobre Nós</a></li>
               <li><a href="#cultos" className="hover:text-white transition-colors">Cultos</a></li>
               <li><a href="#ministerios" className="hover:text-white transition-colors">Ministérios</a></li>
-              <li><a href="#oracao" className="hover:text-white transition-colors">Pedido de Oração</a></li>
-              <li><a href="#localizacao" className="hover:text-white transition-colors">Localização</a></li>
-              <li>
-                <ContributionModal 
-                  trigger={
-                    <button className="hover:text-white transition-colors">Contribuição</button>
-                  }
-                />
-              </li>
+              <li><a href="#midia" className="hover:text-white transition-colors">Mídia</a></li>
+              <li><a href="#contribuir" className="hover:text-white transition-colors">Generosidade</a></li>
+              <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
+              <li><a href="#contato" className="hover:text-white transition-colors">Contato</a></li>
             </ul>
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="lg:col-span-2">
             <h4 className="mb-6 text-xl font-bold">Contato</h4>
-            <ul className="space-y-4 text-gray-400">
+            <ul className="grid md:grid-cols-2 gap-4 text-gray-400">
               <li className="flex items-start gap-3">
                 <MapPin className="mt-1 h-5 w-5 text-primary shrink-0" />
                 <span>Rua Mauricio Fernandes, 25 - Guadalupe, Rio de Janeiro - RJ</span>
@@ -71,22 +66,6 @@ export default function Footer() {
                 <span>contato@advilaesperanca.org.br</span>
               </li>
             </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h4 className="mb-6 text-xl font-bold">Fique por Dentro</h4>
-            <p className="mb-4 text-gray-400">Receba notícias e atualizações diretamente no seu e-mail.</p>
-            <form className="flex flex-col gap-2">
-              <input 
-                type="email" 
-                placeholder="Seu e-mail" 
-                className="rounded-full bg-white/10 px-4 py-2 text-white outline-none focus:ring-2 focus:ring-primary"
-              />
-              <button className="rounded-full bg-primary px-4 py-2 font-bold text-white transition-opacity hover:opacity-90">
-                Inscrever-se
-              </button>
-            </form>
           </div>
         </div>
 

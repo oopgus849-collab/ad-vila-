@@ -3,22 +3,28 @@ import { Instagram, Twitter, Mail } from 'lucide-react';
 
 const leaders = [
   {
-    name: 'Pr. Ricardo & Pra. Eliane',
-    role: 'Pastores Seniores',
-    image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2074&auto=format&fit=crop',
-    bio: 'Liderando a Vila Esperança há 15 anos com paixão e dedicação ao Evangelho.',
+    name: 'Pr. Magner Ferreira & Pra. Sirlei Ferreira',
+    role: 'Pastores Presidentes',
+    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop',
+    bio: 'Liderança visionária da CONAMAD, dedicados à expansão do Reino e ao fortalecimento das famílias cristãs em todo o Brasil.',
   },
   {
-    name: 'Pr. Lucas Mendes',
-    role: 'Pastor de Jovens',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop',
-    bio: 'Dedicado a equipar a próxima geração para viver uma fé autêntica.',
+    name: 'Pr. Verinaldo & Miss. Nathasa',
+    role: 'Pastores Seniores',
+    image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2074&auto=format&fit=crop',
+    bio: 'Liderando a Vila Esperança com paixão, integridade e uma visão clara para a transformação de vidas através do Evangelho.',
+  },
+  {
+    name: 'Gustavo Braga & Yara',
+    role: 'Líderes de Jovens',
+    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2032&auto=format&fit=crop',
+    bio: 'Dedicados a equipar e inspirar a próxima geração para viver uma fé autêntica e impactante em nossa sociedade.',
   },
   {
     name: 'Pra. Sarah Lima',
     role: 'Ministério de Louvor',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop',
-    bio: 'Conduzindo a igreja em adoração profunda e centrada em Cristo.',
+    bio: 'Conduzindo a igreja em adoração profunda e centrada em Cristo, buscando sempre a excelência e a unção.',
   },
 ];
 
@@ -31,7 +37,7 @@ export default function Leadership() {
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Conheça os pastores que servem nossa comunidade com amor, integridade e dedicação ao Reino.</p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {leaders.map((leader, i) => (
             <motion.div
               key={leader.name}

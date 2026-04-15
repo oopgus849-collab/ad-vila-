@@ -1,11 +1,16 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import ChurchDashboard from '@/components/ChurchDashboard';
 import ServiceTimes from '@/components/ServiceTimes';
 import Ministries from '@/components/Ministries';
 import Events from '@/components/Events';
 import Testimonials from '@/components/Testimonials';
 import Leadership from '@/components/Leadership';
-import PrayerRequest from '@/components/PrayerRequest';
+import Generosity from '@/components/Generosity';
+import Media from '@/components/Media';
+import FAQ from '@/components/FAQ';
+import Contact from '@/components/Contact';
+import Newsletter from '@/components/Newsletter';
 import Location from '@/components/Location';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -18,8 +23,10 @@ export default function App() {
       <Navbar />
       <ScrollToTop />
       
-      <main className="flex-grow">
+      <main className="flex-grow pt-20">
         <Hero />
+        
+        <ChurchDashboard />
         
         {/* About Section */}
         <section id="sobre" className="py-32 overflow-hidden">
@@ -135,7 +142,16 @@ export default function App() {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <PrayerRequest />
+          <Generosity />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <Media />
         </motion.div>
 
         <motion.div
@@ -171,8 +187,28 @@ export default function App() {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
+          <FAQ />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <Contact />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
           <Location />
         </motion.div>
+
+        <Newsletter />
 
         {/* Call to Action */}
         <section className="py-32 bg-primary text-primary-foreground text-center relative overflow-hidden">

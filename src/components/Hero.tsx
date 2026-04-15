@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Play, Heart, Users, Sparkles, Church } from 'lucide-react';
+import { ArrowRight, Play, Heart, Users, Sparkles, Church, Radio, MapPin } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -44,7 +44,8 @@ export default function Hero() {
           backgroundImage: 'url("https://images.unsplash.com/photo-1548625361-195fe5772a9d?q=80&w=2070&auto=format&fit=crop")',
         }}
       >
-        <div className="absolute inset-0 bg-secondary/75 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-secondary/80 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       </motion.div>
 
@@ -56,11 +57,19 @@ export default function Hero() {
             animate="visible"
             className="lg:w-2/3 text-center lg:text-left"
           >
-            <motion.div variants={itemVariants}>
-              <div className="inline-flex items-center gap-2 mb-8 rounded-full border border-white/20 bg-white/10 px-6 py-2 text-sm font-bold backdrop-blur-md text-white shadow-xl">
+            <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center lg:items-start gap-4 mb-8">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-2 text-sm font-bold backdrop-blur-md text-white shadow-xl">
                 <Sparkles className="h-4 w-4 text-primary animate-pulse" />
                 <span className="tracking-widest uppercase">Uma igreja viva para um Deus vivo</span>
               </div>
+              <motion.div 
+                animate={{ opacity: [1, 0.5, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="inline-flex items-center gap-2 rounded-full border border-red-500/50 bg-red-500/20 px-4 py-2 text-xs font-bold backdrop-blur-md text-red-400 shadow-xl"
+              >
+                <div className="h-2 w-2 rounded-full bg-red-500 animate-ping" />
+                <span className="tracking-widest uppercase">Ao Vivo Agora</span>
+              </motion.div>
             </motion.div>
             
             <motion.h1 
@@ -145,6 +154,39 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      {/* Quick Access Bar */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-0 left-0 w-full bg-background/40 backdrop-blur-3xl border-t border-white/10 hidden md:block"
+      >
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex justify-between items-center">
+            <div className="flex gap-12">
+              {[
+                { label: "Próximo Culto", value: "Dom, 18:00" },
+                { label: "Localização", value: "Marechal Hermes" },
+                { label: "Transmissão", value: "YouTube Live" },
+              ].map((item) => (
+                <div key={item.label} className="space-y-1">
+                  <p className="text-[10px] font-mono font-bold text-primary uppercase tracking-widest">{item.label}</p>
+                  <p className="text-white font-bold">{item.value}</p>
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-4">
+              <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary transition-colors cursor-pointer">
+                <Radio className="h-5 w-5" />
+              </div>
+              <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary transition-colors cursor-pointer">
+                <MapPin className="h-5 w-5" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
 
       {/* Scroll Indicator */}
       <motion.div

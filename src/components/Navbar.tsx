@@ -17,9 +17,10 @@ const navItems = [
   { name: 'Sobre Nós', href: '#sobre' },
   { name: 'Cultos', href: '#cultos' },
   { name: 'Ministérios', href: '#ministerios' },
-  { name: 'Oração', href: '#oracao' },
-  { name: 'Eventos', href: '#eventos' },
-  { name: 'Localização', href: '#localizacao' },
+  { name: 'Mídia', href: '#midia' },
+  { name: 'Contribuir', href: '#contribuir' },
+  { name: 'FAQ', href: '#faq' },
+  { name: 'Contato', href: '#contato' },
 ];
 
 export default function Navbar() {
@@ -30,7 +31,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl rounded-[2rem] border border-white/20 bg-background/60 backdrop-blur-2xl shadow-2xl"
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <div className="flex items-center gap-3">

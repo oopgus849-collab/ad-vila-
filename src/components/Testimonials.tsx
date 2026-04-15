@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-import Autoplay from "embla-carousel-autoplay";
+import AutoScroll from "embla-carousel-auto-scroll";
 import {
   Carousel,
   CarouselContent,
@@ -41,7 +41,7 @@ const testimonials = [
 
 export default function Testimonials() {
   const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
+    AutoScroll({ speed: 1, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
   return (
@@ -60,14 +60,13 @@ export default function Testimonials() {
           </p>
         </motion.div>
 
-        <div className="relative max-w-5xl mx-auto px-12">
+        <div className="relative max-w-7xl mx-auto px-4">
           <Carousel
             plugins={[plugin.current]}
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
             opts={{
               align: "start",
               loop: true,
+              dragFree: true,
             }}
             className="w-full"
           >
