@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import { Menu, X, Church } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -16,15 +17,21 @@ const navItems = [
   { name: 'Sobre Nós', href: '#sobre' },
   { name: 'Cultos', href: '#cultos' },
   { name: 'Ministérios', href: '#ministerios' },
+  { name: 'Oração', href: '#oracao' },
   { name: 'Eventos', href: '#eventos' },
-  { name: 'Contato', href: '#contato' },
+  { name: 'Localização', href: '#localizacao' },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <motion.header 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+    >
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <div className="flex items-center gap-3">
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary p-2 shadow-lg">
@@ -91,6 +98,6 @@ export default function Navbar() {
           </Sheet>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }

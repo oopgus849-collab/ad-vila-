@@ -1,64 +1,119 @@
+import React from 'react';
 import { motion } from 'motion/react';
-import { Quote } from 'lucide-react';
+import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
-    name: 'Maria Silva',
-    role: 'Membro há 5 anos',
-    text: 'Encontrei na Vila Esperança não apenas uma igreja, mas uma família que me acolheu nos momentos mais difíceis.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop',
+    text: "Encontrei na AD Vila Esperança não apenas uma igreja, mas uma família que me acolheu nos momentos mais difíceis.",
+    author: "Maria Silva",
+    role: "Membro há 5 anos"
   },
   {
-    name: 'João Santos',
-    role: 'Líder de Pequeno Grupo',
-    text: 'Crescer espiritualmente aqui tem sido uma jornada incrível. O ensino bíblico é profundo e prático.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop',
+    text: "A Escola Bíblica Dominical transformou meu entendimento das Escrituras e fortaleceu minha caminhada com Cristo.",
+    author: "João Pereira",
+    role: "Líder de Pequeno Grupo"
   },
   {
-    name: 'Ana Oliveira',
-    role: 'Voluntária no Infantil',
-    text: 'Servir as crianças é uma alegria. Ver o brilho nos olhos delas ao aprenderem sobre Jesus não tem preço.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop',
+    text: "Ver meus filhos crescendo no Ministério Infantil, aprendendo valores cristãos, é a maior alegria da nossa família.",
+    author: "Ana Santos",
+    role: "Mãe e Voluntária"
   },
+  {
+    text: "O acolhimento que recebi aqui foi algo que nunca experimentei antes. Sinto que finalmente encontrei meu lugar.",
+    author: "Carlos Oliveira",
+    role: "Membro Novo"
+  },
+  {
+    text: "Os cultos de oração são momentos de renovo espiritual profundo. Minha vida de oração mudou completamente.",
+    author: "Beatriz Lima",
+    role: "Intercessora"
+  }
 ];
 
 export default function Testimonials() {
-  return (
-    <section className="py-24 overflow-hidden bg-background">
-      <div className="container mx-auto px-4">
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold tracking-tight md:text-5xl">Vidas Transformadas</h2>
-          <p className="mt-4 text-lg text-muted-foreground">O que nossa comunidade diz sobre sua experiência na Vila Esperança.</p>
-        </div>
+  const plugin = React.useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  );
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="relative rounded-3xl bg-secondary/20 p-8"
-            >
-              <Quote className="absolute top-6 right-8 h-12 w-12 text-primary/10" />
-              <p className="relative z-10 mb-8 text-lg italic leading-relaxed text-foreground/80">
-                "{t.text}"
-              </p>
-              <div className="flex items-center gap-4">
-                <img 
-                  src={t.image} 
-                  alt={t.name} 
-                  className="h-12 w-12 rounded-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-                <div>
-                  <h4 className="font-bold">{t.name}</h4>
-                  <p className="text-sm text-muted-foreground">{t.role}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+  return (
+    <section className="py-32 bg-secondary/5 overflow-hidden">
+      <div className="container mx-auto px-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-20 text-center"
+        >
+          <span className="text-primary font-bold uppercase tracking-widest text-sm">Testemunhos</span>
+          <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl font-heading">Vidas Transformadas</h2>
+          <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto font-light">
+            O que nossa comunidade diz sobre sua experiência com Deus e a comunhão em nossa igreja.
+          </p>
+        </motion.div>
+
+        <div className="relative max-w-5xl mx-auto px-12">
+          <Carousel
+            plugins={[plugin.current]}
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {testimonials.map((t, i) => (
+                <CarouselItem key={i} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: i * 0.1 }}
+                    viewport={{ once: true }}
+                    className="h-full"
+                  >
+                    <Card className="h-full border-none shadow-xl bg-card rounded-[2.5rem] overflow-hidden group hover:shadow-2xl transition-all duration-500">
+                      <CardContent className="p-10 flex flex-col h-full relative">
+                        <Quote className="absolute top-8 right-8 h-12 w-12 text-primary/10 group-hover:text-primary/20 transition-colors" />
+                        
+                        <div className="flex-grow">
+                          <p className="text-lg italic leading-relaxed text-foreground/80 mb-8 relative z-10">
+                            "{t.text}"
+                          </p>
+                        </div>
+                        
+                        <div className="mt-auto pt-6 border-t border-primary/5">
+                          <p className="font-bold text-xl text-primary">{t.author}</p>
+                          <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{t.role}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            
+            <div className="hidden md:block">
+              <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground transition-all" />
+              <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground transition-all" />
+            </div>
+          </Carousel>
+          
+          {/* Mobile Navigation Hint */}
+          <div className="mt-10 flex justify-center gap-2 md:hidden">
+            <div className="h-1.5 w-8 rounded-full bg-primary" />
+            <div className="h-1.5 w-2 rounded-full bg-primary/20" />
+            <div className="h-1.5 w-2 rounded-full bg-primary/20" />
+          </div>
         </div>
       </div>
     </section>

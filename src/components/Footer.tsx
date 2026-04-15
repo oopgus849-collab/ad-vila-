@@ -40,8 +40,10 @@ export default function Footer() {
             <ul className="space-y-4 text-gray-400">
               <li><a href="#" className="hover:text-white transition-colors">Início</a></li>
               <li><a href="#sobre" className="hover:text-white transition-colors">Sobre Nós</a></li>
+              <li><a href="#cultos" className="hover:text-white transition-colors">Cultos</a></li>
               <li><a href="#ministerios" className="hover:text-white transition-colors">Ministérios</a></li>
-              <li><a href="#eventos" className="hover:text-white transition-colors">Eventos</a></li>
+              <li><a href="#oracao" className="hover:text-white transition-colors">Pedido de Oração</a></li>
+              <li><a href="#localizacao" className="hover:text-white transition-colors">Localização</a></li>
               <li>
                 <ContributionModal 
                   trigger={
@@ -57,16 +59,16 @@ export default function Footer() {
             <h4 className="mb-6 text-xl font-bold">Contato</h4>
             <ul className="space-y-4 text-gray-400">
               <li className="flex items-start gap-3">
-                <MapPin className="mt-1 h-5 w-5 text-primary-foreground shrink-0" />
-                <span>Rua da Esperança, 123 - Vila, Cidade - CEP 00000-000</span>
+                <MapPin className="mt-1 h-5 w-5 text-primary shrink-0" />
+                <span>Rua Mauricio Fernandes, 25 - Guadalupe, Rio de Janeiro - RJ</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-primary-foreground shrink-0" />
-                <span>(11) 99999-9999</span>
+                <Phone className="h-5 w-5 text-primary shrink-0" />
+                <span>(21) 99999-9999</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-primary-foreground shrink-0" />
-                <span>contato@vilaesperanca.org</span>
+                <Mail className="h-5 w-5 text-primary shrink-0" />
+                <span>contato@advilaesperanca.org.br</span>
               </li>
             </ul>
           </div>

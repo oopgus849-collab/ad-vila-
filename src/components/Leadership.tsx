@@ -27,11 +27,11 @@ export default function Leadership() {
     <section className="py-24 bg-secondary/5">
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold tracking-tight md:text-5xl">Nossa Liderança</h2>
-          <p className="mt-4 text-lg text-muted-foreground">Conheça os pastores que servem nossa comunidade com amor e integridade.</p>
+          <h2 className="text-4xl font-bold tracking-tight md:text-5xl font-heading">Nossa Liderança</h2>
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Conheça os pastores que servem nossa comunidade com amor, integridade e dedicação ao Reino.</p>
         </div>
 
-        <div className="grid gap-12 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-3">
           {leaders.map((leader, i) => (
             <motion.div
               key={leader.name}
@@ -39,25 +39,29 @@ export default function Leadership() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="group text-center"
+              className="group relative bg-background rounded-[2.5rem] overflow-hidden shadow-xl border border-primary/5 transition-all hover:-translate-y-2 hover:shadow-2xl"
             >
-              <div className="relative mx-auto mb-6 h-64 w-64 overflow-hidden rounded-full border-4 border-background shadow-xl grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
+              <div className="relative h-80 overflow-hidden">
                 <img 
                   src={leader.image} 
                   alt={leader.name} 
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
                   referrerPolicy="no-referrer"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
               </div>
-              <h3 className="text-2xl font-bold">{leader.name}</h3>
-              <p className="mb-4 font-medium text-primary uppercase tracking-wider text-sm">{leader.role}</p>
-              <p className="mb-6 text-muted-foreground leading-relaxed px-4">
-                {leader.bio}
-              </p>
-              <div className="flex justify-center gap-4">
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Instagram className="h-5 w-5" /></a>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Twitter className="h-5 w-5" /></a>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Mail className="h-5 w-5" /></a>
+              
+              <div className="p-8 text-center">
+                <h3 className="text-2xl font-bold mb-1">{leader.name}</h3>
+                <p className="mb-4 font-bold text-primary uppercase tracking-widest text-xs">{leader.role}</p>
+                <p className="mb-6 text-muted-foreground text-sm leading-relaxed">
+                  {leader.bio}
+                </p>
+                <div className="flex justify-center gap-4">
+                  <a href="#" className="h-10 w-10 rounded-full bg-secondary/10 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all"><Instagram className="h-5 w-5" /></a>
+                  <a href="#" className="h-10 w-10 rounded-full bg-secondary/10 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all"><Twitter className="h-5 w-5" /></a>
+                  <a href="#" className="h-10 w-10 rounded-full bg-secondary/10 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all"><Mail className="h-5 w-5" /></a>
+                </div>
               </div>
             </motion.div>
           ))}
